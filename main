@@ -1,0 +1,115 @@
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("MACIERZ");
+
+        int[][] matrix = new int[5][5];
+        Random rand = new Random();
+
+
+        System.out.println("********************");
+        System.out.println("Wylosowana macierz: ");
+
+
+        for (int i = 0; i < 5; i++) // losowanie macierzy
+        {
+            for (int j = 0; j < 5; j++) {
+                matrix[i][j] = rand.nextInt(11) - 5;
+                System.out.print(matrix[i][j] + "  ");
+            }
+            System.out.println();
+        }
+
+        // min wart w kazdym wierszu
+
+        int min1 = matrix[0][0];
+        int min2 = matrix[1][0];
+        int min3 = matrix[2][0];
+        int min4 = matrix[3][0];
+        int min5 = matrix[4][0];
+        for (int j = 1; j < 5; j++) {
+            if (min1 > matrix[0][j]) {
+                min1 = matrix[0][j];
+
+            }
+            if (min2 > matrix[1][j]) {
+                min2 = matrix[1][j];
+            }
+            if (min3 > matrix[2][j]) {
+                min3 = matrix[2][j];
+            }
+            if (min4 > matrix[3][j]) {
+                min4 = matrix[3][j];
+            }
+            if (min5 > matrix[4][j]) {
+                min5 = matrix[4][j];
+            }
+        }
+        System.out.println(" Min w 1 wierszu: " + min1);
+        System.out.println(" Min w 2 wierszu: " + min2);
+        System.out.println(" Min w 3 wierszu: " + min3);
+        System.out.println(" Min w 4 wierszu: " + min4);
+        System.out.println(" Min w 5 wierszu: " + min5);
+
+        // max wart w kazdej kolumnie
+
+        int max1 = matrix[0][0];
+        int max2 = matrix[0][1];
+        int max3 = matrix[0][2];
+        int max4 = matrix[0][3];
+        int max5 = matrix[0][4];
+        for (int i = 1; i < 5; i++) {
+            if (max1 < matrix[i][0]) {
+                max1 = matrix[i][0];
+
+            }
+            if (max2 < matrix[i][1]) {
+                max2 = matrix[i][1];
+            }
+            if (max3 < matrix[i][2]) {
+                max3 = matrix[i][2];
+            }
+            if (max4 < matrix[i][3]) {
+                max4 = matrix[i][3];
+            }
+            if (max5 < matrix[i][4]) {
+                max5 = matrix[i][4];
+            }
+        }
+        System.out.println();
+        System.out.println(" Max w 1 kolumnie: " + max1);
+        System.out.println(" Max w 2 kolumnie: " + max2);
+        System.out.println(" Max w 3 kolumnie: " + max3);
+        System.out.println(" Max w 4 kolumnie: " + max4);
+        System.out.println(" Max w 5 kolumnie: " + max5);
+
+        // max wart w 1-szej przekatnej
+
+        int max = matrix[0][0];
+
+        for (int i = 1; i < 5; i++) {
+
+            if (max < matrix[i][i]) {
+                max = matrix[i][i];
+            }
+        }
+        System.out.println();
+        System.out.println(" Max w 1-szej przekątnej: " + max);
+
+        // min wart w 2-giej przekatnej
+
+        int min = matrix[0][4];
+
+        for (int j = 3; j >= 0; j--)
+        {for (int i = 1; i < 5; i++)
+        {
+                if (min > matrix[i][j]) {
+                    min = matrix[i][j];
+                }
+            }}
+        System.out.println();
+        System.out.println(" Min w 2-giej przekątnej: " + min);
+
+    }}
